@@ -9,7 +9,6 @@ class nodejs::repo::nodesource::apt {
   if ($ensure != 'absent') {
     apt::keyring { 'nodesource':
       source   => 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
-      dir      => '/etc/apt/keyring',
       filename => 'nodesource-repo.gpg.key.asc',
     }
 
@@ -46,7 +45,6 @@ class nodejs::repo::nodesource::apt {
     }
     apt::keyring { 'nodesource':
       ensure   => 'absent',
-      dir      => '/etc/apt/keyring',
       filename => 'nodesource-repo.gpg.key.asc',
     }
   }
