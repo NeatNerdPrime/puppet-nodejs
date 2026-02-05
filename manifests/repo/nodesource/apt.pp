@@ -9,14 +9,14 @@ class nodejs::repo::nodesource::apt {
   if ($ensure != 'absent') {
     apt::keyring { 'nodesource':
       source   => 'https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key',
-      dir      => '/usr/share/keyrings',
+      dir      => '/etc/apt/keyring',
       filename => 'nodesource-repo.gpg.key.asc',
     }
 
     apt::source { 'nodesource':
       source_format => 'sources',
       location      => ["https://deb.nodesource.com/node_${url_suffix}",],
-      keyring       => '/usr/share/keyrings/nodesource-repo.gpg.key.asc',
+      keyring       => '/etc/apt/keyring/nodesource-repo.gpg.key.asc',
       release       => ['nodistro',],
       repos         => ['main',],
       types         => ['deb',],
@@ -46,7 +46,7 @@ class nodejs::repo::nodesource::apt {
     }
     apt::keyring { 'nodesource':
       ensure   => 'absent',
-      dir      => '/usr/share/keyrings',
+      dir      => '/etc/apt/keyring',
       filename => 'nodesource-repo.gpg.key.asc',
     }
   }
