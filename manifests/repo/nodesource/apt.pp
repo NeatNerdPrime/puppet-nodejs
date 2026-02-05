@@ -15,7 +15,7 @@ class nodejs::repo::nodesource::apt {
     apt::source { 'nodesource':
       source_format => 'sources',
       location      => ["https://deb.nodesource.com/node_${url_suffix}",],
-      keyring       => '/etc/apt/keyring/nodesource-repo.gpg.key.asc',
+      keyring       => '/etc/apt/keyrings/nodesource-repo.gpg.key.asc',
       release       => ['nodistro',],
       repos         => ['main',],
       types         => ['deb',],
