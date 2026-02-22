@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v12.1.0](https://github.com/voxpupuli/puppet-nodejs/tree/v12.1.0) (2026-02-22)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-nodejs/compare/v12.0.0...v12.1.0)
+
+**Implemented enhancements:**
+
+- Update debian source from list to deb822 [\#526](https://github.com/voxpupuli/puppet-nodejs/pull/526) ([alaunay](https://github.com/alaunay))
+- Add ubuntu 24.04 support [\#525](https://github.com/voxpupuli/puppet-nodejs/pull/525) ([bastelfreak](https://github.com/bastelfreak))
+- Add NodeJS 24 to test matrix [\#522](https://github.com/voxpupuli/puppet-nodejs/pull/522) ([evgeni](https://github.com/evgeni))
+
 ## [v12.0.0](https://github.com/voxpupuli/puppet-nodejs/tree/v12.0.0) (2026-01-15)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-nodejs/compare/v11.0.0...v12.0.0)
