@@ -5,7 +5,8 @@ require 'spec_helper_acceptance'
 def nodesource_unsupported(nodejs_version)
   return unless fact('os.family') == 'RedHat'
   return 'Only NodeJS 16 is supported on EL7' if nodejs_version != '16' && fact('os.release.major') == '7'
-  return 'NodeJS 16 is not supported on EL9' if nodejs_version == '16' && fact('os.release.major') == '9'
+
+  'NodeJS 16 is not supported on EL9' if nodejs_version == '16' && fact('os.release.major') == '9'
 end
 
 describe 'nodejs' do
@@ -103,7 +104,7 @@ describe 'nodejs' do
     end
   end
 
-  context 'RedHat with repo_class => nodejs::repo::dnfmodule', if: fact('os.family') == 'RedHat' && %w[8 9].include?(fact('os.release.major')), skip: (nodejs_version == '16' && fact('os.release.major') == '9' ? 'NodeJS 16 is not available on EL9' : nil) do
+  context 'RedHat with repo_class => nodejs::repo::dnfmodule', if: fact('os.family') == 'RedHat' && %w[8 9].include?(fact('os.release.major')), skip: ((nodejs_version == '16' && fact('os.release.major') == '9') ? 'NodeJS 16 is not available on EL9' : nil) do
     # Node 16 is not available on EL9
 
     include_examples 'cleanup'

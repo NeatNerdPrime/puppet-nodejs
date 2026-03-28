@@ -25,7 +25,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let(:title) { 'proxy' }
         let :params do
           {
-            value: 'proxy.domain'
+            value: 'proxy.domain',
           }
         end
 
@@ -38,7 +38,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let(:title) { 'https-proxy' }
         let :params do
           {
-            value: 'proxy.domain'
+            value: 'proxy.domain',
           }
         end
 
@@ -51,7 +51,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let(:title) { 'color' }
         let :params do
           {
-            ensure: 'absent'
+            ensure: 'absent',
           }
         end
 
@@ -65,7 +65,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let :params do
           {
             value: 'cGFzc3dvcmQ=',
-            ensure: 'present'
+            ensure: 'present',
           }
         end
 
@@ -87,7 +87,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let(:title) { 'prefer-online' }
         let :params do
           {
-            value: 'true'
+            value: 'true',
           }
         end
 
@@ -113,7 +113,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let(:title) { 'loglevel' }
         let :params do
           {
-            value: 'debug'
+            value: 'debug',
           }
         end
 
@@ -137,7 +137,7 @@ describe 'nodejs::npm::global_config_entry', type: :define do
         let(:title) { 'init-version' }
         let :params do
           {
-            value: '0.0.1'
+            value: '0.0.1',
           }
         end
 

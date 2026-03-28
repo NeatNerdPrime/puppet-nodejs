@@ -6,7 +6,7 @@ describe Puppet::Type.type(:package).provider(:npm) do
   let(:resource) do
     Puppet::Type.type(:package).new(
       name: 'express',
-      ensure: :present
+      ensure: :present,
     )
   end
 
@@ -64,27 +64,27 @@ describe Puppet::Type.type(:package).provider(:npm) do
     end
 
     it 'returns a list of npm packages installed globally' do
-      expect(provider.class).to receive(:execute).
-        with(['/usr/local/bin/npm', 'list', '--json', '--global'], anything).
-        and_return(Puppet::Util::Execution::ProcessOutput.new(File.read('spec/fixtures/unit/puppet/provider/package/npm/npm_global'), 0))
+      expect(provider.class).to receive(:execute)
+        .with(['/usr/local/bin/npm', 'list', '--json', '--global'], anything)
+        .and_return(Puppet::Util::Execution::ProcessOutput.new(File.read('spec/fixtures/unit/puppet/provider/package/npm/npm_global'), 0))
       expect(provider.class.instances.map(&:properties).sort_by { |res| res[:name] }).to eq([
                                                                                               { ensure: '2.5.9', provider: 'npm', name: 'express' },
-                                                                                              { ensure: '1.1.15', provider: 'npm', name: 'npm' }
+                                                                                              { ensure: '1.1.15', provider: 'npm', name: 'npm' },
                                                                                             ])
     end
 
     it 'logs and continue if the list command has a non-zero exit code' do
-      expect(provider.class).to receive(:execute).
-        with(['/usr/local/bin/npm', 'list', '--json', '--global'], anything).
-        and_return(Puppet::Util::Execution::ProcessOutput.new(File.read('spec/fixtures/unit/puppet/provider/package/npm/npm_global'), 123))
+      expect(provider.class).to receive(:execute)
+        .with(['/usr/local/bin/npm', 'list', '--json', '--global'], anything)
+        .and_return(Puppet::Util::Execution::ProcessOutput.new(File.read('spec/fixtures/unit/puppet/provider/package/npm/npm_global'), 123))
       expect(Puppet).to receive(:debug).with(a_string_matching(%r{123}))
       expect(provider.class.instances.map(&:properties)).not_to eq([])
     end
 
     it "logs and return no packages if JSON isn't output" do
-      expect(provider.class).to receive(:execute).
-        with(['/usr/local/bin/npm', 'list', '--json', '--global'], anything).
-        and_return(Puppet::Util::Execution::ProcessOutput.new('failure!', 0))
+      expect(provider.class).to receive(:execute)
+        .with(['/usr/local/bin/npm', 'list', '--json', '--global'], anything)
+        .and_return(Puppet::Util::Execution::ProcessOutput.new('failure!', 0))
       expect(Puppet).to receive(:debug).with(a_string_matching(%r{npm list.*failure!}))
       expect(provider.class.instances).to eq([])
     end

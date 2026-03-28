@@ -30,14 +30,14 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             target: '/home/npm/packages',
-            user: 'foo'
+            user: 'foo',
           }
         end
 
         it 'the npm install command should run under user foo' do
           is_expected.to contain_exec('npm_install_express').with(
             'command' => "#{npm_path} install express ",
-            'user' => 'foo'
+            'user' => 'foo',
           )
         end
       end
@@ -47,7 +47,7 @@ describe 'nodejs::npm', type: :define do
         let :params do
           {
             package: 'express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -74,7 +74,7 @@ describe 'nodejs::npm', type: :define do
           {
             install_options: ['--no-bin-links', '--no-optional'],
             package: 'express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -88,7 +88,7 @@ describe 'nodejs::npm', type: :define do
         let :params do
           {
             package: '@scopename/express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -107,7 +107,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: 'tagname',
             package: '@scopename/express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -126,7 +126,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: 'tagname',
             package: 'express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -145,7 +145,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: '3',
             package: '@scopename/express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -164,7 +164,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: '3',
             package: 'express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -183,7 +183,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: '/local/folder',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -202,7 +202,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: '/local/package.tgz',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -221,7 +221,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'http://domain/package.tgz',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -240,7 +240,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'https://domain/package.tgz',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -259,7 +259,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'strongloop/express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -278,7 +278,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'git://github.com/strongloop/expressjs.git',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -297,7 +297,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'git+ssh://git@github.com:/strongloop/expressjs.git',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -316,7 +316,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'git+https://user@github.com/strongloop/expressjs.git',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -336,7 +336,7 @@ describe 'nodejs::npm', type: :define do
             ensure: 'present',
             package: 'express',
             target: '/home/user/project',
-            use_package_json: true
+            use_package_json: true,
           }
         end
 
@@ -355,7 +355,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: 'absent',
             package: 'express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -375,14 +375,14 @@ describe 'nodejs::npm', type: :define do
             ensure: 'absent',
             package: 'express',
             target: '/home/npm/packages',
-            uninstall_options: ['--save']
+            uninstall_options: ['--save'],
           }
         end
 
         it 'the command should be npm rm express --save' do
           is_expected.to contain_exec('npm_rm_express').with(
             'command' => "#{npm_path} rm express --save",
-            'cwd' => '/home/npm/packages'
+            'cwd' => '/home/npm/packages',
           )
         end
       end
@@ -394,7 +394,7 @@ describe 'nodejs::npm', type: :define do
             ensure: 'absent',
             package: 'express',
             target: '/home/user/project',
-            use_package_json: true
+            use_package_json: true,
           }
         end
 
@@ -415,8 +415,8 @@ describe 'nodejs::npm', type: :define do
         {
           'os' => {
             'family' => 'Darwin',
-            'name' => 'Darwin'
-          }
+            'name' => 'Darwin',
+          },
         }
       end
 
@@ -428,7 +428,7 @@ describe 'nodejs::npm', type: :define do
         let :params do
           {
             package: 'express',
-            target: '/home/npm/packages'
+            target: '/home/npm/packages',
           }
         end
 
@@ -449,9 +449,9 @@ describe 'nodejs::npm', type: :define do
             'family' => 'Windows',
             'name' => 'Windows',
             'windows' => {
-              'system32' => 'C:\Windows\system32'
-            }
-          }
+              'system32' => 'C:\Windows\system32',
+            },
+          },
         }
       end
 
@@ -463,7 +463,7 @@ describe 'nodejs::npm', type: :define do
         let :params do
           {
             package: 'express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -486,7 +486,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             target: 'C:\packages',
-            install_options: ['--no-bin-links', '--no-optional']
+            install_options: ['--no-bin-links', '--no-optional'],
           }
         end
 
@@ -500,7 +500,7 @@ describe 'nodejs::npm', type: :define do
         let :params do
           {
             package: '@scopename/express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -519,7 +519,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: 'tagname',
             package: '@scopename/express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -538,7 +538,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: 'tagname',
             package: 'express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -557,7 +557,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: '3',
             package: '@scopename/express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -576,7 +576,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: '3',
             package: 'express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -595,7 +595,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'C:\local\folder',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -614,7 +614,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'C:\local\package.tgz',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -633,7 +633,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'http://domain/package.tgz',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -652,7 +652,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'https://domain/package.tgz',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -671,7 +671,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'strongloop/express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -690,7 +690,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'git://github.com/strongloop/expressjs.git',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -709,7 +709,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'git+ssh://git@github.com:/strongloop/expressjs.git',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -728,7 +728,7 @@ describe 'nodejs::npm', type: :define do
           {
             package: 'express',
             source: 'git+https://user@github.com/strongloop/expressjs.git',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -748,7 +748,7 @@ describe 'nodejs::npm', type: :define do
             ensure: 'present',
             package: 'express',
             target: 'C:\Users\test\project',
-            use_package_json: true
+            use_package_json: true,
           }
         end
 
@@ -767,7 +767,7 @@ describe 'nodejs::npm', type: :define do
           {
             ensure: 'absent',
             package: 'express',
-            target: 'C:\packages'
+            target: 'C:\packages',
           }
         end
 
@@ -787,7 +787,7 @@ describe 'nodejs::npm', type: :define do
             ensure: 'absent',
             package: 'express',
             target: 'C:\packages',
-            uninstall_options: ['--save']
+            uninstall_options: ['--save'],
           }
         end
 
@@ -803,7 +803,7 @@ describe 'nodejs::npm', type: :define do
             ensure: 'absent',
             package: 'express',
             target: 'C:\Users\test\project',
-            use_package_json: true
+            use_package_json: true,
           }
         end
 
